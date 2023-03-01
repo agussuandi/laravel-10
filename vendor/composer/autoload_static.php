@@ -121,6 +121,7 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+            'LaravelPWA\\' => 11,
         ),
         'I' => 
         array (
@@ -340,8 +341,8 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -402,6 +403,10 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
         'Laravel\\Sail\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
+        ),
+        'LaravelPWA\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/silviolleite/laravelpwa',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -507,7 +512,12 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Helpers\\AppHelper' => __DIR__ . '/../..' . '/app/Helpers/AppHelper.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Panel\\Home\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Panel/Home/HomeController.php',
+        'App\\Http\\Controllers\\Panel\\Notification\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Panel/Notification/NotificationController.php',
+        'App\\Http\\Controllers\\Panel\\PembelianObat\\PembelianObatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Panel/PembelianObat/PembelianObatController.php',
+        'App\\Http\\Controllers\\Panel\\TakeMedicine\\TakeMedicineController' => __DIR__ . '/../..' . '/app/Http/Controllers/Panel/TakeMedicine/TakeMedicineController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -518,6 +528,10 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\ObatRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ObatRequest.php',
+        'App\\Models\\MDosis' => __DIR__ . '/../..' . '/app/Models/MDosis.php',
+        'App\\Models\\MObat' => __DIR__ . '/../..' . '/app/Models/MObat.php',
+        'App\\Models\\TrxObat' => __DIR__ . '/../..' . '/app/Models/TrxObat.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -2684,6 +2698,11 @@ class ComposerStaticInit8b7f65bebd0c9dfb29c39799ffa9b713
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'LaravelPWA\\Http\\Controllers\\LaravelPWAController' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Http/Controllers/LaravelPWAController.php',
+        'LaravelPWA\\Providers\\LaravelPWAServiceProvider' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Providers/LaravelPWAServiceProvider.php',
+        'LaravelPWA\\Providers\\RouteServiceProvider' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Providers/RouteServiceProvider.php',
+        'LaravelPWA\\Services\\ManifestService' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Services/ManifestService.php',
+        'LaravelPWA\\Services\\MetaService' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Services/MetaService.php',
         'Laravel\\Sail\\Console\\AddCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/AddCommand.php',
         'Laravel\\Sail\\Console\\Concerns\\InteractsWithDockerComposeServices' => __DIR__ . '/..' . '/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
