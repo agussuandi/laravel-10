@@ -17,7 +17,8 @@ use App\Http\Controllers\Panel\PembelianObat\PembelianObatController;
 |
 */
 
-Route::redirect('/', '/home');
+// Route::redirect('/', '/home');
+Route::get('/', [HomeController::class, 'index']);
 Route::resource('/home', HomeController::class);
 Route::resource('/take-medicine', TakeMedicineController::class)->only('create', 'store');
 Route::resource('/pembelian-obat', PembelianObatController::class)->only('create', 'store');

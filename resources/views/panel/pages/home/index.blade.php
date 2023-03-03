@@ -69,7 +69,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="mt-3" id="pagination-outstanding">
+            <div class="mt-3" id="pagination-obat">
             </div>
         </div>
     </div>
@@ -81,7 +81,9 @@
             handleObat(`{{ route('home.json.datatables') }}`)
 
             setInterval(() => {
-                location.reload()
+                if (state.events.modal._element.id === 'modalNotificationObat' || !state.events.modal._isShown) {
+                    location.reload()
+                }
             }, 50000);
         })
 
@@ -128,8 +130,8 @@
                             `
                         })
                     })
-                    pagination(`pagination-outstanding`, res.pagination, url => {
-                        handleOutstanding(url)
+                    pagination(`pagination-obat`, res.pagination, url => {
+                        handleObat(url)
                     })
                 }
             })
