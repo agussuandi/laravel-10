@@ -57,7 +57,7 @@ class HomeController extends Controller
                 'stock_alert' => $request->input('stockAlert')
             ]);
 
-            return redirect()->route('home.index');
+            return redirect()->route('home.index')->with('success', 'Penambahan obat berhasil');
         }
         catch (\Throwable $th)
         {
@@ -126,7 +126,7 @@ class HomeController extends Controller
             //     'created_at' => now()
             // ]);
 
-            return redirect()->route('home.index');
+            return redirect()->route('home.index')->with('success', 'Edit obat berhasil');
         }
         catch (\Throwable $th)
         {

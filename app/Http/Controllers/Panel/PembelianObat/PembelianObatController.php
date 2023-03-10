@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel\PembelianObat;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\MObat;
 use App\Models\TrxObat;
@@ -36,30 +37,33 @@ class PembelianObatController extends Controller
     {
         try
         {
-            $newStock = $request->input('stock') + $request->input('qtyUsage');
-            $obat = MObat::updateOrInsert(
-                ['id' => $request->input('obatId')],
-                [
-                    'stock' => $newStock,
-                ]
-            );
+            DB::transaction(function() use($request)
+            {
+                $newStock = $request->input('stock') + $request->input('qtyUsage');
+                $obat = MObat::updateOrInsert(
+                    ['id' => $request->input('obatId')],
+                    [
+                        'stock' => $newStock,
+                    ]
+                );
 
-            $trxObat = TrxObat::create([
-                'trx_date'   => today(),
-                'obat_id'    => $request->input('obatId'),
-                'name'       => '-',
-                'usage'      => $request->input('qtyUsage'),
-                'last_stock' => $request->input('stock'),
-                'new_stock'  => $newStock,
-                'created_at' => now(),
-                'notes'      => 'Pembelian obat'
-            ]);
-
-            return redirect()->route('home.index');
+                $trxObat = TrxObat::create([
+                    'trx_date'   => today(),
+                    'obat_id'    => $request->input('obatId'),
+                    'name'       => '-',
+                    'usage'      => $request->input('qtyUsage'),
+                    'last_stock' => $request->input('stock'),
+                    'new_stock'  => $newStock,
+                    'created_at' => now(),
+                    'notes'      => 'Pembelian obat'
+                ]);
+            });
+            
+            return redirect()->route('home.index')->with('success', 'Pembelian obat berhasil');
         }
         catch (\Throwable $th)
         {
-            dd($request->all());
+            dd($th->getMessage());
         }
     }
 }

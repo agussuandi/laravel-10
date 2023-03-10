@@ -110,12 +110,12 @@
                                     <td>${data.mg}</td>
                                     <td>${data.company}</td>
                                     <td>${data.dosis.name}</td>
-                                    <td>${data.stock}</td>
-                                    <td>${data.stock_alert}</td>
+                                    <td>${parseFloat(data.stock)}</td>
+                                    <td>${parseFloat(data.stock_alert)}</td>
                                     <td>
                                         ${data.stock === 0 
                                             ?  '<span class="badge bg-danger">Stock Habis</span>'
-                                            : (`${data.stock < data.stock_alert ? '<span class="badge bg-warning">Stock Akan Habis</span>' : '<span class="badge bg-primary">Stock Tersedia</span>'}`)
+                                            : (`${parseFloat(data.stock) < parseFloat(data.stock_alert) ? '<span class="badge bg-warning">Stock Akan Habis</span>' : '<span class="badge bg-primary">Stock Tersedia</span>'}`)
                                         }
                                     </td>
                                     <td>
@@ -190,7 +190,9 @@
                     modal('modalNotificationObat')
                 }
                 else {
-                    modal('modalNotificationObat', 'hide')
+                    if (state.events.modal) {
+                        modal('modalNotificationObat', 'hide')
+                    }
                 }
             })
             .catch(err => {

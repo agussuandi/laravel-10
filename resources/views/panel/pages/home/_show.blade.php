@@ -15,7 +15,7 @@
                                 <td class="w-24">{{ $obat->name }}</td>
                                 <td class="w-24 fw-bold">Stok</td>
                                 <td class="w-2 fw-bold">:</td>
-                                <td class="w-24">{{ $obat->stock }}</td>
+                                <td class="w-24">{{ (float)$obat->stock }}</td>
                             </tr>
                             <tr>
                                 <td class="w-24 fw-bold">Pabrik</td>
@@ -31,7 +31,7 @@
                                 <td class="w-24">{{ $obat->mg }}</td>
                                 <td class="w-24 fw-bold">Minimal Stok</td>
                                 <td class="w-2 fw-bold">:</td>
-                                <td class="w-24">{{ $obat->stock_alert }}</td>
+                                <td class="w-24">{{ (float)$obat->stock_alert }}</td>
                             </tr>
                             <tr>
                                 <td class="w-24 fw-bold" valign="top">Status</td>
@@ -67,9 +67,9 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $trx->created_at }}</td>
-                                    <td>{{ $trx->last_stock }}</td>
-                                    <td>{{ $trx->usage }}</td>
-                                    <td>{{ $trx->new_stock }}</td>
+                                    <td>{{ (float)$trx->last_stock }}</td>
+                                    <td>{{ (float)$trx->usage }}</td>
+                                    <td>{{ (float)$trx->new_stock }}</td>
                                     <td>{{ $trx->notes }}</td>
                                 </tr>
                             @empty

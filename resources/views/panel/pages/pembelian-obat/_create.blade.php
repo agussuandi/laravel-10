@@ -26,6 +26,10 @@
                         <input type="text" class="form-control" id="company" placeholder="Masukan pabrik pembuat obat" required autocomplete="off" maxlength="220" readonly />
                     </div>
                     <div class="mb-3">
+                        <label for="dosisId" class="form-label">Pemakaian (Dosis) Perhari</label>
+                        <input type="text" class="form-control" id="dosisId" placeholder="Masukan perhari" required autocomplete="off" maxlength="220" readonly />
+                    </div>
+                    <div class="mb-3">
                         <label for="stock" class="form-label">Stok</label>
                         <input type="text" class="form-control" id="stock" name="stock" placeholder="Masukan stok obat" required autocomplete="off" maxlength="5" readonly oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1')" />
                     </div>
@@ -37,7 +41,7 @@
                     <hr />
                     <div class="mb-3">
                         <label for="qtyUsage" class="form-label">Jumlah Pembelian</label>
-                        <input type="text" class="form-control" id="qtyUsage" name="qtyUsage" placeholder="Masukan jumlah pemakaian" required autocomplete="off" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1')" />
+                        <input type="text" class="form-control" id="qtyUsage" name="qtyUsage" placeholder="Masukan jumlah pemakaian" required autocomplete="off" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')" />
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -55,12 +59,14 @@
             const elMg         = document.getElementById('mg')
             const elCompany    = document.getElementById('company')
             const elStock      = document.getElementById('stock')
+            const elDosis      = document.getElementById('dosisId')
             const elStockAlert = document.getElementById('stockAlert')
 
             elMg.value         = res.data.mg
             elCompany.value    = res.data.company
-            elStock.value      = res.data.stock
-            elStockAlert.value = res.data.stock_alert
+            elStock.value      = parseFloat(res.data.stock)
+            elDosis.value      = res.data.dosis.name
+            elStockAlert.value = parseFloat(res.data.stock_alert)
         })
         .catch(err => {
             console.log(err)

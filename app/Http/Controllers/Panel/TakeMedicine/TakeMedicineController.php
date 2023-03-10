@@ -59,7 +59,7 @@ class TakeMedicineController extends Controller
                 );
             });
 
-            return redirect()->route('home.index');
+            return redirect()->route('home.index')->with('success', 'Pemakaian obat berhasil');
         }
         catch (\Throwable $th)
         {

@@ -45,7 +45,8 @@
                     <hr />
                     <div class="mb-3">
                         <label for="qtyUsage" class="form-label">Jumlah Pemakaian</label>
-                        <input type="text" class="form-control" id="qtyUsage" name="qtyUsage" placeholder="Masukan jumlah pemakaian" required autocomplete="off" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1')" onkeyup="handleJumlahPemakaian(this)" />
+                        {{-- <input type="text" class="form-control" id="qtyUsage" name="qtyUsage" placeholder="Masukan jumlah pemakaian" required autocomplete="off" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1')" onkeyup="handleJumlahPemakaian(this)" /> --}}
+                        <input type="text" class="form-control" id="qtyUsage" name="qtyUsage" readonly  />
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -65,12 +66,14 @@
             const elStock      = document.getElementById('stock')
             const elStockAlert = document.getElementById('stockAlert')
             const elDosis      = document.getElementById('dosisId')
+            const elQtyyUsage  = document.getElementById('qtyUsage')
 
             elMg.value         = res.data.mg
             elCompany.value    = res.data.company
-            elStock.value      = res.data.stock
-            elStockAlert.value = res.data.stock_alert
+            elStock.value      = parseFloat(res.data.stock)
+            elStockAlert.value = parseFloat(res.data.stock_alert)
             elDosis.value      = res.data.dosis.name
+            elQtyyUsage.value  = parseFloat(res.data.dosis.usage)
         })
         .catch(err => {
             console.log(err)
